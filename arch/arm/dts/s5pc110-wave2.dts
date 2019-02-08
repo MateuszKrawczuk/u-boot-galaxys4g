@@ -8,7 +8,8 @@
 /dts-v1/;
 
 #include <dt-bindings/input/linux-event-codes.h>
-#include "s5pc1xx-aries.dts"
+#include "s5pc110.dtsi"
+#include <dt-bindings/gpio/gpio.h>
 
 / {
 	model = "Samsung Wave 2 based on S5PC110";

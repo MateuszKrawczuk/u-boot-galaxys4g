@@ -5,16 +5,15 @@
  * Copyright (c) 2014 Google, Inc
  */
 
-/dts-v1/;
-
 #include "skeleton.dtsi"
 #include "s5pc110-pinctrl.dtsi"
 
 / {
-	model = "Samsung Goni based on S5PC110";
-	compatible = "samsung,goni", "samsung,s5pc110";
+	compatible =  "samsung,s5pc110";
 
 	aliases {
+		serial0 = "/serial@e2900000";
+		serial1 = "/serial@e2900400";
 		serial2 = "/serial@e2900800";
 		console = "/serial@e2900800";
 		pinctrl0 = &pinctrl0;
@@ -24,6 +23,20 @@
 	pinctrl0: pinctrl@e0200000 {
 		compatible = "samsung,s5pc110-pinctrl";
 		reg = <0xe0200000 0x1000>;
+	};
+
+	serial@e2900000 {
+		compatible = "samsung,exynos4210-uart";
+		reg = <0xe2900800 0x400>;
+		id = <0>;
+		status = "disabled";
+	};
+
+	serial@e2900400 {
+		compatible = "samsung,exynos4210-uart";
+		reg = <0xe2900800 0x400>;
+		id = <1>;
+		status = "disabled";
 	};
 
 	serial@e2900800 {

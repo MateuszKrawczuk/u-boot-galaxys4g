@@ -14,15 +14,15 @@
 enum board cur_board = BOARD_MAX;
 
 static const char *board_fit_name[BOARD_MAX] = {
-	[BOARD_UNKNOWN] = "s5pc1xx-aries",
-	[BOARD_CAPTIVATE] = "s5pc1xx-aries",
-	[BOARD_FASCINATE] = "s5pc1xx-aries",
-	[BOARD_FASCINATE4G] = "s5pc1xx-fascinate4g",
-	[BOARD_GALAXYS] = "s5pc1xx-galaxys",
-	[BOARD_GALAXYS4G] = "s5pc1xx-fascinate4g",
-	[BOARD_GALAXYSB] = "s5pc1xx-aries",
-	[BOARD_VIBRANT] = "s5pc1xx-aries",
-	[BOARD_WAVE2] = "s5pc1xx-wave2",
+	[BOARD_UNKNOWN] = "s5pc110-aries",
+	[BOARD_CAPTIVATE] = "s5pc110-aries",
+	[BOARD_FASCINATE] = "s5pc110-aries",
+	[BOARD_FASCINATE4G] = "s5pc110-fascinate4g",
+	[BOARD_GALAXYS] = "s5pc110-galaxys",
+	[BOARD_GALAXYS4G] = "s5pc110-fascinate4g",
+	[BOARD_GALAXYSB] = "s5pc110-aries",
+	[BOARD_VIBRANT] = "s5pc110-aries",
+	[BOARD_WAVE2] = "s5pc110-wave2",
 };
 
 /**
