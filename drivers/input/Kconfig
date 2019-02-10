@@ -14,6 +14,12 @@ config CROS_EC_KEYB
 	  Messages are used to request key scans from the EC and these are
 	  then decoded into keys by this driver.
 
+config SAMSUNG_KEYPAD
+	bool "Enable Samsung keypad"
+	depends on DM_KEYBOARD
+	help
+	  Some samsung devices use keypad instead of gpio keys.
+
 config GPIO_KEYS
 	bool "Enable polled gpio keys"
 	depends on DM_KEYBOARD
