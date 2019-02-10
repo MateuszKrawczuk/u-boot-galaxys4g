@@ -4,6 +4,14 @@ choice
 	prompt "EXYNOS architecture type select"
 	optional
 
+config ARCH_EXYNOS3
+	bool "Exynos3 SoC family"
+	select CPU_V7A
+	help
+	  Samsung Exynos3 SoC family are based on ARM Cortex-A8 or A7 CPU. There
+	  are few SoCs in this family including Exynos3110, Exynos3250, Exynos3470,
+	  and Exynos3475.
+
 config ARCH_EXYNOS4
 	bool "Exynos4 SoC family"
 	select BOARD_EARLY_INIT_F
@@ -39,6 +47,29 @@ config ARCH_EXYNOS7
 	  multiple SoCs in this family including Exynos7420.
 
 endchoice
+
+if ARCH_EXYNOS3
+
+choice
+	prompt "EXYNOS3 board select"
+
+config TARGET_EXYNOS3_GONI
+	bool "Exynos3 Goni board"
+	select OF_CONTROL
+	
+config TARGET_EXYNOS3_ARIES
+	bool "Exynos3 Aries board"
+	select OF_CONTROL
+	select BOARD_LATE_INIT
+	select SUPPORT_SPL
+
+config TARGET_EXYNOS3_WAVE2
+	bool "Exynos3 wave2 board"
+	select OF_CONTROL
+	select BOARD_LATE_INIT
+
+endchoice
+endif
 
 if ARCH_EXYNOS4
 
@@ -152,6 +183,7 @@ endif
 config SYS_SOC
 	default "exynos"
 
+source "board/samsung/exynos3/Kconfig"
 source "board/samsung/smdkv310/Kconfig"
 source "board/samsung/trats/Kconfig"
 source "board/samsung/universal_c210/Kconfig"
@@ -162,6 +194,7 @@ source "board/samsung/arndale/Kconfig"
 source "board/samsung/smdk5250/Kconfig"
 source "board/samsung/smdk5420/Kconfig"
 source "board/samsung/espresso7420/Kconfig"
+
 
 config SPL_LDSCRIPT
 	default "board/samsung/common/exynos-uboot-spl.lds" if ARCH_EXYNOS5 || ARCH_EXYNOS4

@@ -10,6 +10,23 @@ config TARGET_S5P_ARIES
 	select BOARD_LATE_INIT
 	select SUPPORT_SPL
 
+config TARGET_EXYNOS3_GONI
+	bool "Exynos3 Goni board"
+	select OF_CONTROL
+	
+config TARGET_EXYNOS3_ARIES
+	bool "Exynos3 Aries board"
+	select OF_CONTROL
+	select BOARD_LATE_INIT
+	select SUPPORT_SPL
+
+config TARGET_EXYNOS3_WAVE2
+	bool "Exynos3 wave2 board"
+	select OF_CONTROL
+	select BOARD_LATE_INIT
+	select SUPPORT_SPL
+
+	
 config TARGET_S5P_GONI
 	bool "S5P Goni board"
 	select OF_CONTROL
@@ -23,8 +40,7 @@ endchoice
 config SYS_SOC
 	default "s5pc1xx"
 
-source "board/samsung/aries/Kconfig"
-source "board/samsung/goni/Kconfig"
+source "board/samsung/exynos3/Kconfig"
 source "board/samsung/smdkc100/Kconfig"
 
 endif

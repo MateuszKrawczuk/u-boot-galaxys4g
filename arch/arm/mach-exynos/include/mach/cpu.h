@@ -12,6 +12,30 @@
 #define EXYNOS_CPU_NAME			"Exynos"
 #define EXYNOS4_ADDR_BASE		0x10000000
 
+
+#define EXYNOS3_ADDR_BASE		0xE0000000
+
+/* EXYNOS3 110 */
+#define EXYNOS3110_PRO_ID		0xE0000000
+#define EXYNOS3110_CLOCK_BASE	0xE0100000
+#define EXYNOS3110_GPIO_BASE	0xE0200000
+#define EXYNOS3110_PWMTIMER_BASE	0xE2500000
+#define EXYNOS3110_WATCHDOG_BASE	0xE2700000
+#define EXYNOS3110_UART_BASE	0xE2900000
+#define EXYNOS3110_SROMC_BASE	0xE8000000
+#define EXYNOS3110_MMC_BASE	0xEB000000
+#define EXYNOS3110_DMC0_BASE	0xF0000000
+#define EXYNOS3110_DMC1_BASE	0xF1400000
+#define EXYNOS3110_VIC0_BASE	0xF2000000
+#define EXYNOS3110_VIC1_BASE	0xF2100000
+#define EXYNOS3110_VIC2_BASE	0xF2200000
+#define EXYNOS3110_VIC3_BASE	0xF2300000
+#define EXYNOS3110_OTG_BASE	0xEC000000
+#define EXYNOS3110_PHY_BASE	0xEC100000
+#define EXYNOS3110_KEYPAD_BASE	0xE1600000
+#define EXYNOS3110_USB_PHY_CONTROL 0xE010E80C
+
+
 /* EXYNOS4 Common*/
 #define EXYNOS4_I2C_SPACING		0x10000
 
@@ -208,6 +232,9 @@ static inline void s5p_set_cpu_id(void)
 	unsigned int cpu_rev = pro_id & 0x000000FF;
 
 	switch (cpu_id) {
+	case 0x110:
+		s5p_cpu_id = 0xc110;
+		s5p_cpu_rev = 0;	
 	case 0x200:
 		/* Exynos4210 EVT0 */
 		s5p_cpu_id = 0x4210;
@@ -252,6 +279,7 @@ static inline int __attribute__((no_instrument_function)) cpu_is_##type(void) \
 	return (s5p_cpu_id >> 12) == id;		\
 }
 
+IS_SAMSUNG_TYPE(exynos3, 0x3)
 IS_SAMSUNG_TYPE(exynos4, 0x4)
 IS_SAMSUNG_TYPE(exynos5, 0x5)
 
@@ -262,6 +290,7 @@ static inline int __attribute__((no_instrument_function)) \
 	return s5p_cpu_id == id;			\
 }
 
+IS_EXYNOS_TYPE(exynos3110, 0x3110)
 IS_EXYNOS_TYPE(exynos4210, 0x4210)
 IS_EXYNOS_TYPE(exynos4412, 0x4412)
 IS_EXYNOS_TYPE(exynos5250, 0x5250)

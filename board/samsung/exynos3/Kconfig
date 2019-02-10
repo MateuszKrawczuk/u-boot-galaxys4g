@@ -1,0 +1,45 @@
+if TARGET_EXYNOS3_GONI
+
+config SYS_BOARD
+	default "goni"
+
+config SYS_VENDOR
+	default "samsung"
+
+config SYS_SOC
+	default "s5pc1xx"
+
+config SYS_CONFIG_NAME
+	default "exynos3_goni"
+
+endif
+
+if TARGET_EXYNOS3_ARIES
+config SYS_BOARD
+	default "aries"
+
+config SYS_VENDOR
+	default "samsung"
+
+config SYS_SOC
+	default "s5pc1xx"
+
+config SYS_CONFIG_NAME
+	default "exynos3_aries"
+
+endif
+
+if TARGET_EXYNOS3_WAVE2
+config SYS_BOARD
+	default "wave2"
+
+config SYS_VENDOR
+	default "samsung"
+
+config SYS_SOC
+	default "s5pc1xx"
+
+config SYS_CONFIG_NAME
+	default "exynos3_wave2"
+
+endif
